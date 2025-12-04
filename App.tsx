@@ -71,7 +71,7 @@ const App: React.FC = () => {
             } else if (option.value === 'end_session') {
                 addMessage({
                     sender: 'bot',
-                    text: "This session has ended. Thank you for your time."
+                    text: "This session has ended. Thank you for your time. Please return to survey."
                 });
             } else if (['sleep', 'exercise', 'food', 'habits'].includes(option.value)) {
                 const topic = option.value as Topic;
