@@ -15,7 +15,7 @@ const App: React.FC = () => {
         },
         {
             id: 'welcome-2',
-            text: 'Are you ready to speak with Ziata?',
+            text: 'Are you ready to talk to Ziata?',
             options: [{ text: 'Begin', value: 'begin', needScore: 0, subtype: 'COGNITIVE' }],
             sender: 'bot'
         },
