@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import MessageList from './MessageList';
 import MenuOptions from './MenuOptions';
-import { getQuestion, calculateRecommendation } from './dialogueService';
+import { getQuestion, calculateRecommendation } from './geminiServices.ts';
 import { RESPONSE_DELAY } from './constants';
 import type { Message, Topic, MenuOption } from './types';
 
@@ -15,9 +15,11 @@ const App: React.FC = () => {
         },
         {
             id: 'welcome-2',
-            text: 'Are you ready to talk to Ziata?',
-            options: [{ text: 'Begin', value: 'begin', needScore: 0, subtype: 'COGNITIVE' }],
-            sender: 'bot'
+            sender: 'bot',
+            text: "Would you like to start the conversation?",
+            options: [
+                { text: 'Begin', value: 'begin', needScore: 0, subtype: 'COGNITIVE' },
+            ],
         },
     ];
 
@@ -54,8 +56,7 @@ const App: React.FC = () => {
 
         setTimeout(() => {
             setIsTyping(false);
-            
-            // Flow Control
+
             if (option.value === 'begin') {
                 addMessage({
                     sender: 'bot',
